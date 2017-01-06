@@ -4,7 +4,9 @@ source "http://rubygems.org"
 #   gem "activesupport", ">= 2.3.5"
 
 gem 'httpclient'
+gem 'googleauth'
 gem 'json'
+gem 'jwt', '~> 1.5'
 
 # Add dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.

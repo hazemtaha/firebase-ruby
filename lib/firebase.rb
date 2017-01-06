@@ -8,18 +8,15 @@ module Firebase
   class Client
     attr_reader :auth, :request
 
-    def initialize(base_uri, auth=nil)
+    def initialize(base_uri, credentials = nil)
       if base_uri !~ URI::regexp(%w(https))
         raise ArgumentError.new('base_uri must be a valid https uri')
       end
       base_uri += '/' unless base_uri.end_with?('/')
       @request = HTTPClient.new({
         :base_url => base_uri,
-        :default_header => {
-          'Content-Type' => 'application/json'
-        }
+        :default_header => credentials.apply({'Content-Type' => 'application/json'})
       })
-      @auth = auth
     end
 
     # Writes and returns the data
@@ -60,4 +57,8 @@ module Firebase
       })
     end
   end
+end
+
+if defined?(Rails)
+  require 'firebase/railtie'
 end

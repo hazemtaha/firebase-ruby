@@ -47,6 +47,7 @@ Gem::Specification.new do |s|
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<httpclient>, [">= 0"])
+      s.add_runtime_dependency(%q<googleauth>, [">= 0"])
       s.add_runtime_dependency(%q<json>, [">= 0"])
       s.add_development_dependency(%q<rake>, [">= 0"])
       s.add_development_dependency(%q<rdoc>, [">= 0"])
