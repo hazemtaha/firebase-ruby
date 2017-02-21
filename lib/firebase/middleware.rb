@@ -11,7 +11,7 @@ module Firebase
       secret = Rails.application.config.firebase.authentication
       scopes =  %w(https://www.googleapis.com/auth/firebase.database https://www.googleapis.com/auth/userinfo.email)
 
-      @credentials = Google::Auth::DefaultCredentials.make_creds(json_key_io: StringIO.new(secret.to_json), scope: scopes)
+      @credentials = Google::Auth::DefaultCredentials.make_creds(json_key_io: StringIO.new(secret), scope: scopes)
     end
 
     def call(env)
@@ -22,4 +22,3 @@ module Firebase
 
   end
 end
-
